@@ -1,0 +1,43 @@
+@use './basics.scss';
+
+.card {
+  position: relative;
+  border-radius: 10px;
+  background: #121212;
+  width: min(250px, 100%);
+  padding: 15px;
+  color: #fff;
+  overflow: hidden;
+  h2, p {
+    position: relative;
+    margin: 0;
+    line-height: 1;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  p {
+    font-size: 18px;
+    text-transform: capitalize;
+    span {
+      font-size: 12px;
+      text-transform: initial;
+    }
+  }
+  &:hover {
+    .deco {
+      transform: scale(10);
+    }
+  }
+}
+
+.deco {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #3ecd5e;
+  border-radius: 50%;
+  top: -50px;
+  right: -50px;
+  transition: all .5s ease;
+}

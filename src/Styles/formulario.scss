@@ -1,0 +1,19 @@
+@use './basics.scss';
+.formulario {
+  width: fit-content;
+  padding: 15px;
+  border-radius:  15px;
+  background: #f7f7f7;
+  margin: 0 0 15px;
+  input {
+    margin: 0 0 0 5px;
+  }
+}
+
+.error {
+  width: 250px;
+  font-size: 12px;
+  text-align: center;
+  color: #ff0000;
+  margin: 0 0 15px;
+}

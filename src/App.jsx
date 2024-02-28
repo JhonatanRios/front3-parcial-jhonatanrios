@@ -1,15 +1,13 @@
-import './App.css'
-import Card from './Components/Card'
+import Form from "./Components/Form";
+import './Styles/basics.scss'
 
 function App() {
-
   return (
-    <>
-      <h1>Lista de estudiantes</h1>
-      <Form/>
-      <Card/>
-    </>
-  )
+    <div className="d-grid center App">
+      <h1>Frases célebres</h1>
+      <Form />
+    </div>
+  );
 }
 
-export default App
+export default App;
