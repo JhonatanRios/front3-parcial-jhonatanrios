@@ -16,26 +16,22 @@ const Form = () => {
   })
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const { nombre, fraseFavorita, autor } = usuario
+    e.preventDefault();
+    const { nombre, fraseFavorita } = usuario;
 
-    const nombreOk = nombre.trim().length >= 3 && nombre.trim() === nombre
-    const fraseOk = fraseFavorita.trim().length >= 6 && fraseFavorita.trim() === fraseFavorita
-
-    const autorOk = autor.trim() !== '' ? autor : 'Autor desconocido';
-
-    setUsuario({
-      ...usuario,
-      autor: autorOk
-    });
+    const nombreOk = nombre.trim().length >= 3 && nombre.trim() === nombre;
+    const fraseOk = fraseFavorita.trim().length >= 6 && fraseFavorita.trim() === fraseFavorita;
 
     setErrors({
       nombre: !nombreOk,
       fraseFavorita: !fraseOk
-    })
+    });
 
-    setShow(nombreOk && fraseOk)
+    if (nombreOk && fraseOk) {
+      setShow(true);
+    }
   }
+
   return (
     <>
       <form className="d-grid center g-10 formulario" onSubmit={handleSubmit}>
@@ -51,7 +47,7 @@ const Form = () => {
         {errors.fraseFavorita && <p className="error">Por favor chequea que la información sea correcta. (mínimo 6 caracteres y sin espacios al inicio).</p>}
         <label>
           ¿Quien es el autor?: 
-          <input type="text" onChange={(e) => setUsuario({...usuario, fraseFavorita: e.target.value})}/>
+          <input type="text" onChange={(e) => setUsuario({...usuario, autor: e.target.value})}/>
         </label>
         <button>Enviar</button>
       </form>
