@@ -16,20 +16,21 @@ const Form = () => {
   })
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const { nombre, fraseFavorita } = usuario;
+    e.preventDefault()
+    const { nombre, fraseFavorita, autor } = usuario
+    const nombreOk = nombre.trim().length >= 3 && nombre.trim() === nombre
+    const fraseOk = fraseFavorita.trim().length >= 6 && fraseFavorita.trim() === fraseFavorita
+    const autorOk = autor.trim() !== '' ? autor : 'Autor desconocido';
 
-    const nombreOk = nombre.trim().length >= 3 && nombre.trim() === nombre;
-    const fraseOk = fraseFavorita.trim().length >= 6 && fraseFavorita.trim() === fraseFavorita;
-
+    setUsuario({
+      ...usuario,
+      autor: autorOk
+    });
     setErrors({
       nombre: !nombreOk,
       fraseFavorita: !fraseOk
-    });
-
-    if (nombreOk && fraseOk) {
-      setShow(true);
-    }
+    })
+    setShow(nombreOk && fraseOk)
   }
 
   return (
